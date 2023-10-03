@@ -11,7 +11,41 @@
 		B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54412ACCBC5B001864A7 /* ContentView.swift */; };
 		B5CC54442ACCBC5D001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54432ACCBC5D001864A7 /* Assets.xcassets */; };
 		B5CC54472ACCBC5D001864A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54462ACCBC5D001864A7 /* Preview Assets.xcassets */; };
+		B5CC54502ACCBDD6001864A7 /* MSU Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */; };
+		B5CC54582ACCBE33001864A7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CC54572ACCBE33001864A7 /* WidgetKit.framework */; };
+		B5CC545A2ACCBE33001864A7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CC54592ACCBE33001864A7 /* SwiftUI.framework */; };
+		B5CC545D2ACCBE33001864A7 /* MSU_WidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC545C2ACCBE33001864A7 /* MSU_WidgetsBundle.swift */; };
+		B5CC545F2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC545E2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift */; };
+		B5CC54612ACCBE33001864A7 /* MSU_Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54602ACCBE33001864A7 /* MSU_Widgets.swift */; };
+		B5CC54632ACCBE33001864A7 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54622ACCBE33001864A7 /* AppIntent.swift */; };
+		B5CC54652ACCBE35001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54642ACCBE35001864A7 /* Assets.xcassets */; };
+		B5CC54692ACCBE35001864A7 /* MSU WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B5CC54552ACCBE33001864A7 /* MSU WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5CC54672ACCBE35001864A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5CC54342ACCBC5B001864A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5CC54542ACCBE33001864A7;
+			remoteInfo = "MSU WidgetsExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5CC546D2ACCBE35001864A7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5CC54692ACCBE35001864A7 /* MSU WidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minecraft Server Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +53,16 @@
 		B5CC54412ACCBC5B001864A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5CC54432ACCBC5D001864A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5CC54462ACCBC5D001864A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MSU Service.swift"; sourceTree = "<group>"; };
+		B5CC54552ACCBE33001864A7 /* MSU WidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MSU WidgetsExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5CC54572ACCBE33001864A7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B5CC54592ACCBE33001864A7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B5CC545C2ACCBE33001864A7 /* MSU_WidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSU_WidgetsBundle.swift; sourceTree = "<group>"; };
+		B5CC545E2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSU_WidgetsLiveActivity.swift; sourceTree = "<group>"; };
+		B5CC54602ACCBE33001864A7 /* MSU_Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSU_Widgets.swift; sourceTree = "<group>"; };
+		B5CC54622ACCBE33001864A7 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		B5CC54642ACCBE35001864A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5CC54662ACCBE35001864A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,13 +73,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5CC54522ACCBE33001864A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CC545A2ACCBE33001864A7 /* SwiftUI.framework in Frameworks */,
+				B5CC54582ACCBE33001864A7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B5CC54332ACCBC5B001864A7 = {
 			isa = PBXGroup;
 			children = (
+				B5CC544D2ACCBD98001864A7 /* Shared */,
 				B5CC543E2ACCBC5B001864A7 /* Minecraft Server Utility */,
+				B5CC545B2ACCBE33001864A7 /* MSU Widgets */,
+				B5CC54562ACCBE33001864A7 /* Frameworks */,
 				B5CC543D2ACCBC5B001864A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */,
+				B5CC54552ACCBE33001864A7 /* MSU WidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +124,44 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B5CC544D2ACCBD98001864A7 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC544E2ACCBDA9001864A7 /* Services */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B5CC544E2ACCBDA9001864A7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B5CC54562ACCBE33001864A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC54572ACCBE33001864A7 /* WidgetKit.framework */,
+				B5CC54592ACCBE33001864A7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5CC545B2ACCBE33001864A7 /* MSU Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				B5CC545C2ACCBE33001864A7 /* MSU_WidgetsBundle.swift */,
+				B5CC545E2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift */,
+				B5CC54602ACCBE33001864A7 /* MSU_Widgets.swift */,
+				B5CC54622ACCBE33001864A7 /* AppIntent.swift */,
+				B5CC54642ACCBE35001864A7 /* Assets.xcassets */,
+				B5CC54662ACCBE35001864A7 /* Info.plist */,
+			);
+			path = "MSU Widgets";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +172,34 @@
 				B5CC54382ACCBC5B001864A7 /* Sources */,
 				B5CC54392ACCBC5B001864A7 /* Frameworks */,
 				B5CC543A2ACCBC5B001864A7 /* Resources */,
+				B5CC546D2ACCBE35001864A7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5CC54682ACCBE35001864A7 /* PBXTargetDependency */,
 			);
 			name = "Minecraft Server Utility";
 			productName = "Minecraft Server Utility";
 			productReference = B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B5CC54542ACCBE33001864A7 /* MSU WidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5CC546A2ACCBE35001864A7 /* Build configuration list for PBXNativeTarget "MSU WidgetsExtension" */;
+			buildPhases = (
+				B5CC54512ACCBE33001864A7 /* Sources */,
+				B5CC54522ACCBE33001864A7 /* Frameworks */,
+				B5CC54532ACCBE33001864A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MSU WidgetsExtension";
+			productName = "MSU WidgetsExtension";
+			productReference = B5CC54552ACCBE33001864A7 /* MSU WidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +212,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					B5CC543B2ACCBC5B001864A7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					B5CC54542ACCBE33001864A7 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -116,6 +233,7 @@
 			projectRoot = "";
 			targets = (
 				B5CC543B2ACCBC5B001864A7 /* Minecraft Server Utility */,
+				B5CC54542ACCBE33001864A7 /* MSU WidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +248,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5CC54532ACCBE33001864A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CC54652ACCBE35001864A7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -137,12 +263,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CC54502ACCBDD6001864A7 /* MSU Service.swift in Sources */,
 				B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5CC54512ACCBE33001864A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5CC545F2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift in Sources */,
+				B5CC54632ACCBE33001864A7 /* AppIntent.swift in Sources */,
+				B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */,
+				B5CC545D2ACCBE33001864A7 /* MSU_WidgetsBundle.swift in Sources */,
+				B5CC54612ACCBE33001864A7 /* MSU_Widgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5CC54682ACCBE35001864A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5CC54542ACCBE33001864A7 /* MSU WidgetsExtension */;
+			targetProxy = B5CC54672ACCBE35001864A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B5CC54482ACCBC5D001864A7 /* Debug */ = {
@@ -267,6 +414,7 @@
 		B5CC544B2ACCBC5D001864A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +444,7 @@
 		B5CC544C2ACCBC5D001864A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,6 +471,60 @@
 			};
 			name = Release;
 		};
+		B5CC546B2ACCBE35001864A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6M38R97L4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MSU Widgets/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MSU Widgets";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zgamelogic.Minecraft-Server-Utility.MSU-Widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5CC546C2ACCBE35001864A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6M38R97L4D;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MSU Widgets/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MSU Widgets";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zgamelogic.Minecraft-Server-Utility.MSU-Widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -339,6 +542,15 @@
 			buildConfigurations = (
 				B5CC544B2ACCBC5D001864A7 /* Debug */,
 				B5CC544C2ACCBC5D001864A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5CC546A2ACCBE35001864A7 /* Build configuration list for PBXNativeTarget "MSU WidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5CC546B2ACCBE35001864A7 /* Debug */,
+				B5CC546C2ACCBE35001864A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
