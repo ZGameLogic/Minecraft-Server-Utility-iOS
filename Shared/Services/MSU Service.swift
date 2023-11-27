@@ -9,4 +9,8 @@ import Foundation
 
 class MSUService {
     private init(){}
+    
+    static func printAPI(){
+        print(Constants.API_BASE_URL)
+    }
 }

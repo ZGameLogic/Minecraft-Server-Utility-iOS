@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B56353512B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
+		B56353522B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
 		B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */; };
 		B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54412ACCBC5B001864A7 /* ContentView.swift */; };
 		B5CC54442ACCBC5D001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54432ACCBC5D001864A7 /* Assets.xcassets */; };
@@ -48,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B56353502B142703003F1716 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minecraft Server Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minecraft_Server_UtilityApp.swift; sourceTree = "<group>"; };
 		B5CC54412ACCBC5B001864A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B563534F2B1426F4003F1716 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B56353502B142703003F1716 /* AppConfig.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		B5CC54332ACCBC5B001864A7 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +138,7 @@
 		B5CC544D2ACCBD98001864A7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B563534F2B1426F4003F1716 /* Constants */,
 				B5CC544E2ACCBDA9001864A7 /* Services */,
 			);
 			path = Shared;
@@ -264,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CC54502ACCBDD6001864A7 /* MSU Service.swift in Sources */,
+				B56353512B142703003F1716 /* AppConfig.swift in Sources */,
 				B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
 			);
@@ -274,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CC545F2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift in Sources */,
+				B56353522B142703003F1716 /* AppConfig.swift in Sources */,
 				B5CC54632ACCBE33001864A7 /* AppIntent.swift in Sources */,
 				B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */,
 				B5CC545D2ACCBE33001864A7 /* MSU_WidgetsBundle.swift in Sources */,
