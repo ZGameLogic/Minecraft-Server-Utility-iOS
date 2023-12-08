@@ -23,6 +23,8 @@
 		B5CC54652ACCBE35001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54642ACCBE35001864A7 /* Assets.xcassets */; };
 		B5CC54692ACCBE35001864A7 /* MSU WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B5CC54552ACCBE33001864A7 /* MSU WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */; };
+		B5E4EBAF2B22899900F653D9 /* MinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */; };
+		B5E4EBB02B22899900F653D9 /* MinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,7 @@
 		B5CC54622ACCBE33001864A7 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		B5CC54642ACCBE35001864A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5CC54662ACCBE35001864A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 		B5CC544D2ACCBD98001864A7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B5E4EBAD2B22897700F653D9 /* Data */,
 				B563534F2B1426F4003F1716 /* Constants */,
 				B5CC544E2ACCBDA9001864A7 /* Services */,
 			);
@@ -172,6 +176,14 @@
 				B5CC54662ACCBE35001864A7 /* Info.plist */,
 			);
 			path = "MSU Widgets";
+			sourceTree = "<group>";
+		};
+		B5E4EBAD2B22897700F653D9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +290,7 @@
 				B5CC54502ACCBDD6001864A7 /* MSU Service.swift in Sources */,
 				B56353512B142703003F1716 /* AppConfig.swift in Sources */,
 				B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */,
+				B5E4EBAF2B22899900F653D9 /* MinecraftServer.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5E4EBB02B22899900F653D9 /* MinecraftServer.swift in Sources */,
 				B5CC545F2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift in Sources */,
 				B56353522B142703003F1716 /* AppConfig.swift in Sources */,
 				B5CC54632ACCBE33001864A7 /* AppIntent.swift in Sources */,

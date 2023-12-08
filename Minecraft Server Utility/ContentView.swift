@@ -17,7 +17,13 @@ struct ContentView: View {
         }
         .padding()
         .onAppear(perform: {
-            MSUService.printAPI()
+            Task {
+                do {
+                    print(try await MSUService.fetchServer(server: "Test")!)
+                } catch {
+                    print(error)
+                }
+            }
         })
     }
 }
