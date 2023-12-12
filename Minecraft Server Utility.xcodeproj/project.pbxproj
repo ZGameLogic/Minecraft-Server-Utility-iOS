@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5401ECB2B22A6F600E66375 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5401ECA2B22A6F600E66375 /* Log.swift */; };
+		B5401ECC2B22A6F600E66375 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5401ECA2B22A6F600E66375 /* Log.swift */; };
 		B56353512B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
 		B56353522B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
+		B580A45C2B290B0B0043F932 /* ServersGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */; };
+		B580A45E2B290C310043F932 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45D2B290C310043F932 /* LoginView.swift */; };
+		B580A4602B29110B0043F932 /* MSUUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45F2B29110B0043F932 /* MSUUser.swift */; };
+		B589CD632B291BCB00730B69 /* MSUUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45F2B29110B0043F932 /* MSUUser.swift */; };
+		B589CD652B29242D00730B69 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589CD642B29242D00730B69 /* UserProfileView.swift */; };
 		B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */; };
 		B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54412ACCBC5B001864A7 /* ContentView.swift */; };
 		B5CC54442ACCBC5D001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54432ACCBC5D001864A7 /* Assets.xcassets */; };
@@ -52,7 +59,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B5401ECA2B22A6F600E66375 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B56353502B142703003F1716 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersGeneralView.swift; sourceTree = "<group>"; };
+		B580A45D2B290C310043F932 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B580A45F2B29110B0043F932 /* MSUUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSUUser.swift; sourceTree = "<group>"; };
+		B589CD642B29242D00730B69 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minecraft Server Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minecraft_Server_UtilityApp.swift; sourceTree = "<group>"; };
 		B5CC54412ACCBC5B001864A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,12 +103,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B521B4862B27DB170074DB47 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */,
+				B5401ECA2B22A6F600E66375 /* Log.swift */,
+				B580A45F2B29110B0043F932 /* MSUUser.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B563534F2B1426F4003F1716 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				B56353502B142703003F1716 /* AppConfig.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		B580A45A2B290AE30043F932 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */,
+				B580A45D2B290C310043F932 /* LoginView.swift */,
+				B589CD642B29242D00730B69 /* UserProfileView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B5CC54332ACCBC5B001864A7 = {
@@ -141,6 +173,7 @@
 		B5CC544D2ACCBD98001864A7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B580A45A2B290AE30043F932 /* Views */,
 				B5E4EBAD2B22897700F653D9 /* Data */,
 				B563534F2B1426F4003F1716 /* Constants */,
 				B5CC544E2ACCBDA9001864A7 /* Services */,
@@ -181,7 +214,7 @@
 		B5E4EBAD2B22897700F653D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */,
+				B521B4862B27DB170074DB47 /* Services */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -288,9 +321,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CC54502ACCBDD6001864A7 /* MSU Service.swift in Sources */,
+				B580A45C2B290B0B0043F932 /* ServersGeneralView.swift in Sources */,
+				B580A4602B29110B0043F932 /* MSUUser.swift in Sources */,
 				B56353512B142703003F1716 /* AppConfig.swift in Sources */,
+				B5401ECB2B22A6F600E66375 /* Log.swift in Sources */,
+				B589CD652B29242D00730B69 /* UserProfileView.swift in Sources */,
 				B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */,
 				B5E4EBAF2B22899900F653D9 /* MinecraftServer.swift in Sources */,
+				B580A45E2B290C310043F932 /* LoginView.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,10 +339,12 @@
 			files = (
 				B5E4EBB02B22899900F653D9 /* MinecraftServer.swift in Sources */,
 				B5CC545F2ACCBE33001864A7 /* MSU_WidgetsLiveActivity.swift in Sources */,
+				B589CD632B291BCB00730B69 /* MSUUser.swift in Sources */,
 				B56353522B142703003F1716 /* AppConfig.swift in Sources */,
 				B5CC54632ACCBE33001864A7 /* AppIntent.swift in Sources */,
 				B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */,
 				B5CC545D2ACCBE33001864A7 /* MSU_WidgetsBundle.swift in Sources */,
+				B5401ECC2B22A6F600E66375 /* Log.swift in Sources */,
 				B5CC54612ACCBE33001864A7 /* MSU_Widgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
