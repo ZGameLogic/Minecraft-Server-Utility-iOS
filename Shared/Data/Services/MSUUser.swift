@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct MSUUser:Codable {
+struct MSUUser: Codable {
+    
     let username: String
     let id: String
     let avatar: String
@@ -23,11 +24,17 @@ struct MSUUser:Codable {
         loggedIn = true
     }
     
-    init() {
-        username = ""
-        id = ""
-        avatar = ""
-        permissions = [:]
-        loggedIn = false
+    init(
+        username: String = "",
+        id: String = "",
+        avatar: String = "",
+        permissions: [String : String] = [:],
+        loggedIn: Bool = false
+    ) {
+        self.username = username
+        self.id = id
+        self.avatar = avatar
+        self.permissions = permissions
+        self.loggedIn = loggedIn
     }
 }

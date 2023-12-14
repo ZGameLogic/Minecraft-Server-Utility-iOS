@@ -24,18 +24,47 @@ struct UserProfileView: View {
                         .scaledToFit()
                         .frame(width: 200, height: 200)
                         .cornerRadius(100)
+                        .padding()
                 case .failure:
-                    Text("Failed to load image")
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .padding()
                 @unknown default:
-                    Text("Failed to load image")
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .padding()
                 }
             }.padding()
             Text(user.username)
+                .font(.title)
+                .scaledToFit()
             Button(action: {
                 isShowing = false
                 user = MSUUser()
                 user_id = ""
-            }, label: {Text("Logout")})
+            }, label: {
+                Text("Logout")
+            }).buttonStyle(.borderedProminent)
+                .tint(.danger)
+                .padding()
+        }.onAppear(){
+            print(user.avatar)
         }
     }
+}
+
+#Preview {
+    UserProfileView(
+        user: Binding.constant(MSUUser(
+            username: "zabory",
+            id: "232675572772372481",
+            avatar: "5c2791cbabc9b54b2c852d1dc2bb820b",
+            loggedIn: true
+        )),
+        isShowing: Binding.constant(true)
+    )
 }

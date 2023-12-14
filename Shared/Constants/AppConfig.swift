@@ -18,7 +18,7 @@ struct Constants {
     
     static let DISCORD_AUTH_URL = {
         #if DEBUG
-        return "https://discord.com/api/oauth2/authorize?client_id=1182184476269363230&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Flogin%2Fcallback&scope=identify+email"
+        return "https://discord.com/api/oauth2/authorize?client_id=1182184476269363230&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+email"
         #else
         return "https://discord.com/api/oauth2/authorize?client_id=1182184476269363230&response_type=code&redirect_uri=https%3A%2F%2Fzgamelogic.com%3A2010%2Flogin%2Fcallback&scope=identify+email"
         #endif
@@ -26,7 +26,7 @@ struct Constants {
     
     static let DISCORD_REDIRECT_URL = {
         #if DEBUG
-        return "http://localhost:8080/login/callback"
+        return "http://localhost:3000/login/callback"
         #else
         return "https://zgamelogic.com:2010/login/callback"
         #endif
