@@ -14,12 +14,13 @@ struct ContentView: View {
     @AppStorage("id") private var user_id = ""
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             TabView {
                 ServersGeneralView().tabItem({
                     Label("Monitors", systemImage: "chart.bar.doc.horizontal")
                 })
-            }.toolbar {
+            }.navigationTitle("Servers")
+                .toolbar {
                 ToolbarItem {
                     if(!user.loggedIn){
                         Button(action: {
