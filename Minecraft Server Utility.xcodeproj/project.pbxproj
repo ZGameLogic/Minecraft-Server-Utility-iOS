@@ -35,6 +35,9 @@
 		B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */; };
 		B5E4EBAF2B22899900F653D9 /* MinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */; };
 		B5E4EBB02B22899900F653D9 /* MinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */; };
+		B5E60DE52B2DEF9D00BD55D3 /* SwiftStomp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E60DE42B2DEF9D00BD55D3 /* SwiftStomp.swift */; };
+		B5E60DE82B2DF0D300BD55D3 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = B5E60DE72B2DF0D300BD55D3 /* Starscream */; };
+		B5E60DEB2B2DF10400BD55D3 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = B5E60DEA2B2DF10400BD55D3 /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,7 @@
 		B5CC54642ACCBE35001864A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5CC54662ACCBE35001864A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5E4EBAE2B22899900F653D9 /* MinecraftServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServer.swift; sourceTree = "<group>"; };
+		B5E60DE42B2DEF9D00BD55D3 /* SwiftStomp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStomp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5E60DE82B2DF0D300BD55D3 /* Starscream in Frameworks */,
+				B5E60DEB2B2DF10400BD55D3 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +222,7 @@
 		B5CC544E2ACCBDA9001864A7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B5E60DE32B2DEF8B00BD55D3 /* STOMP */,
 				B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */,
 			);
 			path = Services;
@@ -252,6 +259,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		B5E60DE32B2DEF8B00BD55D3 /* STOMP */ = {
+			isa = PBXGroup;
+			children = (
+				B5E60DE42B2DEF9D00BD55D3 /* SwiftStomp.swift */,
+			);
+			path = STOMP;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,6 +285,10 @@
 				B5CC54682ACCBE35001864A7 /* PBXTargetDependency */,
 			);
 			name = "Minecraft Server Utility";
+			packageProductDependencies = (
+				B5E60DE72B2DF0D300BD55D3 /* Starscream */,
+				B5E60DEA2B2DF10400BD55D3 /* Reachability */,
+			);
 			productName = "Minecraft Server Utility";
 			productReference = B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */;
 			productType = "com.apple.product-type.application";
@@ -318,6 +337,10 @@
 				Base,
 			);
 			mainGroup = B5CC54332ACCBC5B001864A7;
+			packageReferences = (
+				B5E60DE62B2DF0C000BD55D3 /* XCRemoteSwiftPackageReference "Starscream" */,
+				B5E60DE92B2DF10400BD55D3 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+			);
 			productRefGroup = B5CC543D2ACCBC5B001864A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -366,6 +389,7 @@
 				B52330692B2BB49E001878EB /* ServerListView.swift in Sources */,
 				B523306B2B2BB4AB001878EB /* ServerDetailView.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
+				B5E60DE52B2DEF9D00BD55D3 /* SwiftStomp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +688,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5E60DE62B2DF0C000BD55D3 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.6;
+			};
+		};
+		B5E60DE92B2DF10400BD55D3 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5E60DE72B2DF0D300BD55D3 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5E60DE62B2DF0C000BD55D3 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		B5E60DEA2B2DF10400BD55D3 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5E60DE92B2DF10400BD55D3 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5CC54342ACCBC5B001864A7 /* Project object */;
 }

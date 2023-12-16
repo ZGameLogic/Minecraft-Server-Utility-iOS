@@ -7,22 +7,25 @@
 
 import Foundation
 
-
-class MinecraftServersViewModel: ObservableObject {
-    @Published var minecraftServers: [MinecraftServer]
-    private var webSocketTask: URLSessionWebSocketTask?
+class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
+    @Published var minecraftServers: [MinecraftServer] = []
+    private var swiftStomp: SwiftStomp
     
     init(minecraftServers: [MinecraftServer] = []) {
-        self.minecraftServers = minecraftServers
+        let urlString = "http://localhost:8080/ws"
+        
+        self.swiftStomp = SwiftStomp(host: URL(string: urlString)!) //< Create instance
+        self.swiftStomp.delegate = self //< Set delegate
+        self.swiftStomp.autoReconnect = true //< Auto reconnect on error or cancel
+
+        self.swiftStomp.connect() //< Connect
         refreshSevers()
-        openWebSocket()
     }
     
     func refreshSevers(){
         Task {
             do {
                 let servers = try await MSUService.fectchServers()
-                
                 DispatchQueue.main.async {
                     self.minecraftServers = servers
                 }
@@ -32,20 +35,27 @@ class MinecraftServersViewModel: ObservableObject {
         }
     }
     
-    private func openWebSocket() {
-        let url = URL(string: "\(Constants.WEBSOCKET_URL)")!
-        webSocketTask = URLSession.shared.webSocketTask(with: url)
-        receiveMessages()
-        webSocketTask?.resume()
+    func onConnect(swiftStomp: SwiftStomp, connectType: StompConnectType) {
+        print("Websocket connected")
     }
     
-    private func receiveMessages() {
-        Task {
-            while let message = try? await webSocketTask?.receive() {
-                if case .string(let text) = message {
-                    print(text)
-                }
-            }
-        }
+    func onDisconnect(swiftStomp: SwiftStomp, disconnectType: StompDisconnectType) {
+        
+    }
+    
+    func onMessageReceived(swiftStomp: SwiftStomp, message: Any?, messageId: String, destination: String, headers: [String : String]) {
+        print(message!)
+    }
+    
+    func onReceipt(swiftStomp: SwiftStomp, receiptId: String) {
+        
+    }
+    
+    func onError(swiftStomp: SwiftStomp, briefDescription: String, fullDescription: String?, receiptId: String?, type: StompErrorType) {
+        print(briefDescription)
+    }
+    
+    func onSocketEvent(eventName: String, description: String) {
+        
     }
 }
