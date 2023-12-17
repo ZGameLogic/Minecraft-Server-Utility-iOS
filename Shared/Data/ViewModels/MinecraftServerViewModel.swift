@@ -14,11 +14,11 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     init(minecraftServers: [MinecraftServer] = []) {
         let urlString = "http://localhost:8080/ws"
         
-        self.swiftStomp = SwiftStomp(host: URL(string: urlString)!) //< Create instance
-        self.swiftStomp.delegate = self //< Set delegate
-        self.swiftStomp.autoReconnect = true //< Auto reconnect on error or cancel
+        self.swiftStomp = SwiftStomp(host: URL(string: urlString)!)
+        self.swiftStomp.delegate = self
+        self.swiftStomp.autoReconnect = true
 
-        self.swiftStomp.connect() //< Connect
+        self.swiftStomp.connect()
         refreshSevers()
     }
     

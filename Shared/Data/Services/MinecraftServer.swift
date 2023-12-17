@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MinecraftServer: Codable, Identifiable, Hashable {
+class MinecraftServer: Codable, Identifiable {
     var id: String
     
     let filePath: String
@@ -18,7 +18,7 @@ struct MinecraftServer: Codable, Identifiable, Hashable {
     let online: [String]
     let playersOnline: Int
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.filePath = try container.decode(String.self, forKey: .filePath)
         self.status = try container.decode(String.self, forKey: .status)
@@ -62,14 +62,14 @@ struct MinecraftServer: Codable, Identifiable, Hashable {
 }
 
 
-struct MinecraftServerConfig: Codable, Hashable {
+class MinecraftServerConfig: Codable {
     let autoStart: Bool
     let autoUpdate: Bool
     let version: String
     let category: String
     let startCommand: String
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.autoStart = try container.decode(Bool.self, forKey: .autoStart)
         self.autoUpdate = try container.decode(Bool.self, forKey: .autoUpdate)
