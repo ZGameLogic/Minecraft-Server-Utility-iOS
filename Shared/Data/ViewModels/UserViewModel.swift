@@ -11,7 +11,6 @@ class User: ObservableObject {
     @Published var username: String
     @Published var id: String {
         didSet {
-            print("Setting id to \(id)")
             UserDefaults.standard.set(id, forKey: "id")
         }
     }

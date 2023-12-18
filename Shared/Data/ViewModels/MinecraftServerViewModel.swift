@@ -46,13 +46,17 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     }
     
     func onMessageReceived(swiftStomp: SwiftStomp, message: Any?, messageId: String, destination: String, headers: [String : String]) {
-        guard let data = message as? String else {
-            return
+        guard let data = message as? String else { return }
+        guard let stompFrame = try? JSONDecoder().decode(StompMessageFrame.self, from: data.data(using: .utf8)!) else { return }
+        print(stompFrame)
+        guard let index = minecraftServers.firstIndex(where: {$0.name == stompFrame.server}) else { return }
+        switch(stompFrame.messageType){
+        case "status":
+            minecraftServers[index].status = stompFrame.message
+            break
+        default:
+            break
         }
-        guard let stompFrame = try? JSONDecoder().decode(StompMessageFrame.self, from: data.data(using: .utf8)!) else {
-            return
-        }
-        // TODO: process stomp frame
     }
     
     func onReceipt(swiftStomp: SwiftStomp, receiptId: String) {

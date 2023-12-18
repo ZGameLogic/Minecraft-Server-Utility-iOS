@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ServerListView: View {
-    var server: MinecraftServer
+    @ObservedObject var server: MinecraftServer
     
     var body: some View {
         VStack {
             Spacer()
             HStack{
                 Circle()
-                    .fill(statusFill())
+                    .fill(server.statusFill())
                     .frame(width: 20, height: 20)
                 Text(server.name)
                     .font(.title)
@@ -32,23 +32,6 @@ struct ServerListView: View {
                 }
             }
             Spacer()
-        }
-    }
-    
-    func statusFill() -> Color {
-        switch server.status {
-        case "Online":
-            return .online
-        case "Offline":
-            return .offline
-        case "Crashed":
-            return .crashed
-        case "Updating":
-            return .updating
-        case "Starting", "Stopping":
-            return .transitioning
-        default:
-            return .crashed
         }
     }
 }

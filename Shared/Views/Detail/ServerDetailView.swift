@@ -9,13 +9,18 @@ import SwiftUI
 
 struct ServerDetailView: View {
     @EnvironmentObject private var user: User
-    var server: MinecraftServer
+    @ObservedObject var server: MinecraftServer
     
     var body: some View {
         ScrollView {
-            Text(server.name)
-                .font(.title)
-                .padding()
+            HStack {
+                Circle()
+                    .fill(server.statusFill())
+                    .frame(width: 20, height: 20)
+                Text(server.name)
+                    .font(.title)
+                    .padding()
+            }
             Section(content: {
                 ForEach(server.online, id: \.self) { player in
                     HStack {
@@ -38,7 +43,7 @@ struct ServerDetailView: View {
                     ControlGroup {
                         Button("Start"){
                             sendCommand(command: "start")
-                        }.disabled(!(server.status == "Stopped"))
+                        }.disabled(!(server.status == "Offline"))
                         Button("Stop"){
                             sendCommand(command: "stop")
                         }.disabled(!(server.status == "Online"))

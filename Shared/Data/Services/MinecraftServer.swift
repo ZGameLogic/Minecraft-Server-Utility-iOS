@@ -6,17 +6,37 @@
 //
 
 import Foundation
+import SwiftUI
 
-class MinecraftServer: Codable, Identifiable {
+class MinecraftServer: Codable, Identifiable, ObservableObject {
     
     var id: String { return name }
-    let filePath: String
-    let status: String
-    let name: String
-    let serverProperties: [String: String]
-    let serverConfig: MinecraftServerConfig
-    let online: [String]
+    @Published var filePath: String
+    @Published var status: String
+    @Published var name: String
+    @Published var serverProperties: [String: String]
+    @Published var serverConfig: MinecraftServerConfig
+    @Published var online: [String]
     var playersOnline: Int { return online.count }
+    
+    private enum CodingKeys: String, CodingKey {
+        case filePath
+        case status
+        case name
+        case serverProperties
+        case serverConfig
+        case online
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(filePath, forKey: .filePath)
+        try container.encode(status, forKey: .status)
+        try container.encode(name, forKey: .name)
+        try container.encode(serverProperties, forKey: .serverProperties)
+        try container.encode(serverConfig, forKey: .serverConfig)
+        try container.encode(online, forKey: .online)
+    }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -45,24 +65,51 @@ class MinecraftServer: Codable, Identifiable {
     }
     
     static func == (lhs: MinecraftServer, rhs: MinecraftServer) -> Bool {
-        lhs.name == rhs.name &&
-        lhs.filePath == rhs.filePath &&
-        lhs.status == rhs.status &&
-        lhs.id == rhs.id &&
-        lhs.serverProperties == rhs.serverProperties &&
-        lhs.online == rhs.online &&
-        lhs.playersOnline == rhs.playersOnline &&
-        lhs.serverConfig == rhs.serverConfig
+        lhs.name == rhs.name
+    }
+    
+    func statusFill() -> Color {
+        switch status {
+        case "Online":
+            return Color("Online")
+        case "Offline":
+            return Color("Offline")
+        case "Crashed":
+            return Color("Crashed")
+        case "Updating":
+            return Color("Updating")
+        case "Starting", "Stopping":
+            return Color("Transitioning")
+        default:
+            return Color("Crashed")
+        }
     }
 }
 
 
-class MinecraftServerConfig: Codable {
-    let autoStart: Bool
-    let autoUpdate: Bool
-    let version: String
-    let category: String
-    let startCommand: String
+class MinecraftServerConfig: Codable, ObservableObject {
+    @Published var autoStart: Bool
+    @Published var autoUpdate: Bool
+    @Published var version: String
+    @Published var category: String
+    @Published var startCommand: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case autoStart
+        case autoUpdate
+        case version
+        case category
+        case startCommand
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(autoStart, forKey: .autoStart)
+        try container.encode(autoUpdate, forKey: .autoUpdate)
+        try container.encode(version, forKey: .version)
+        try container.encode(category, forKey: .category)
+        try container.encode(startCommand, forKey: .startCommand)
+    }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
