@@ -10,14 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @State private var isLoginPresented = false
     @State private var isProfilePresented = false
-    @State private var user = MSUUser()
-    @AppStorage("id") private var user_id = ""
+    @EnvironmentObject private var user: User
     
     var body: some View {
         NavigationView {
             TabView {
                 ServersGeneralView().tabItem({
-                    Label("Monitors", systemImage: "chart.bar.doc.horizontal")
+                    Label("Servers", systemImage: "chart.bar.doc.horizontal")
                 })
             }.navigationTitle("Servers")
                 .toolbar {
@@ -55,15 +54,14 @@ struct ContentView: View {
                         }.padding()
                     }
                 }
-            }.sheet(isPresented: $isLoginPresented, content: {LoginView(presented: $isLoginPresented, user: $user)})
-                .sheet(isPresented: $isProfilePresented, content: {UserProfileView(user: $user, isShowing: $isProfilePresented)})
+            }.sheet(isPresented: $isLoginPresented, content: {LoginView(presented: $isLoginPresented)})
+                .sheet(isPresented: $isProfilePresented, content: {UserProfileView(isShowing: $isProfilePresented)})
             .onAppear(){
-                if(!user_id.isEmpty){
+                if(!user.id.isEmpty && !user.loggedIn){
                     Task {
-                        let user = try await MSUService.login(id: user_id)
+                        let user = try await MSUService.login(id: user.id)
                         if let user = user {
-                            user_id = user.id
-                            self.user = user
+                            self.user.update(user: user)
                         }
                     }
                 }

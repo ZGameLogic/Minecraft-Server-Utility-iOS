@@ -12,13 +12,11 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     private var swiftStomp: SwiftStomp
     
     init(minecraftServers: [MinecraftServer] = []) {
-        let urlString = "http://localhost:8080/ws"
-        
-        self.swiftStomp = SwiftStomp(host: URL(string: urlString)!)
-        self.swiftStomp.delegate = self
-        self.swiftStomp.autoReconnect = true
-
-        self.swiftStomp.connect()
+        let urlString = "\(Constants.API_BASE_URL)/ws"
+        self.minecraftServers = minecraftServers
+        swiftStomp = SwiftStomp(host: URL(string: urlString)!)
+        swiftStomp.delegate = self
+        swiftStomp.autoReconnect = true
         refreshSevers()
     }
     
@@ -29,6 +27,7 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
                 DispatchQueue.main.async {
                     self.minecraftServers = servers
                 }
+                self.swiftStomp.connect(autoReconnect: true)
             } catch {
                 print(error)
             }
@@ -37,6 +36,9 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     
     func onConnect(swiftStomp: SwiftStomp, connectType: StompConnectType) {
         print("Websocket connected")
+        for minecraftServer in minecraftServers {
+            swiftStomp.subscribe(to: "/server/\(minecraftServer.name)")
+        }
     }
     
     func onDisconnect(swiftStomp: SwiftStomp, disconnectType: StompDisconnectType) {
@@ -44,7 +46,13 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     }
     
     func onMessageReceived(swiftStomp: SwiftStomp, message: Any?, messageId: String, destination: String, headers: [String : String]) {
-        print(message!)
+        guard let data = message as? String else {
+            return
+        }
+        guard let stompFrame = try? JSONDecoder().decode(StompMessageFrame.self, from: data.data(using: .utf8)!) else {
+            return
+        }
+        // TODO: process stomp frame
     }
     
     func onReceipt(swiftStomp: SwiftStomp, receiptId: String) {
@@ -52,7 +60,7 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     }
     
     func onError(swiftStomp: SwiftStomp, briefDescription: String, fullDescription: String?, receiptId: String?, type: StompErrorType) {
-        print(briefDescription)
+        
     }
     
     func onSocketEvent(eventName: String, description: String) {

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    @AppStorage("id") private var user_id = ""
-    @Binding var user: MSUUser
+    @EnvironmentObject private var user: User
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -44,27 +43,18 @@ struct UserProfileView: View {
                 .scaledToFit()
             Button(action: {
                 isShowing = false
-                user = MSUUser()
-                user_id = ""
+                user.logout()
             }, label: {
                 Text("Logout")
             }).buttonStyle(.borderedProminent)
                 .tint(.danger)
                 .padding()
-        }.onAppear(){
-            print(user.avatar)
         }
     }
 }
 
 #Preview {
     UserProfileView(
-        user: Binding.constant(MSUUser(
-            username: "zabory",
-            id: "232675572772372481",
-            avatar: "5c2791cbabc9b54b2c852d1dc2bb820b",
-            loggedIn: true
-        )),
         isShowing: Binding.constant(true)
     )
 }

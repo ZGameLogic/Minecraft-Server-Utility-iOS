@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ServersGeneralView: View {
-    @StateObject var servers = MinecraftServersViewModel();
+    @EnvironmentObject var servers: MinecraftServersViewModel
     
     var body: some View {
         List {
@@ -24,15 +24,15 @@ struct ServersGeneralView: View {
 }
 
 #Preview {
-    ServersGeneralView(servers: MinecraftServersViewModel(minecraftServers: [
-        MinecraftServer(name: "Bens", status: "Offline", serverConfig: MinecraftServerConfig(
-            version: "1.20.4",
-            category: "vanilla"
-        )),
-        MinecraftServer(name: "ATM9", status: "Online", serverConfig: MinecraftServerConfig(
-            version: "All The Mods 9 ATM9",
-            category: "ServerFiles-0.2.21"
-        ),
-        playersOnline: 2)
-    ]))
+    ServersGeneralView()
+        .environmentObject(MinecraftServersViewModel(minecraftServers: [
+            MinecraftServer(name: "Bens", status: "Offline", serverConfig: MinecraftServerConfig(
+                version: "1.20.4",
+                category: "vanilla"
+            )),
+            MinecraftServer(name: "ATM9", status: "Online", serverConfig: MinecraftServerConfig(
+                version: "ServerFiles-0.2.21",
+                category: "All the mods 9"
+            ))
+        ]))
 }

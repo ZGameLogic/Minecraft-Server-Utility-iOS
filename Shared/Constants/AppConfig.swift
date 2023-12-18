@@ -16,14 +16,6 @@ struct Constants {
         #endif
     }()
     
-    static let WEBSOCKET_URL = {
-        #if DEBUG
-        return "ws://localhost:8080/ws"
-        #else
-        return "wss://zgamelogic.com:2010/wss"
-        #endif
-    }()
-    
     static let DISCORD_AUTH_URL = {
         #if DEBUG
         return "https://discord.com/api/oauth2/authorize?client_id=1182184476269363230&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin%2Fcallback&scope=identify+email"

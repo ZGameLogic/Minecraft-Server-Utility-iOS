@@ -10,9 +10,8 @@ import WebKit
 
 struct LoginView: View {
     @State private var webViewNavigation = WebViewNavigation()
-    @AppStorage("id") private var user_id = ""
     @Binding var presented: Bool
-    @Binding var user: MSUUser
+    @EnvironmentObject var user: User
     
     var body: some View {
         WebView(urlString: Constants.DISCORD_AUTH_URL, navigation: $webViewNavigation, onDismiss: {}).onChange(of: webViewNavigation.redirectURL, {
@@ -21,8 +20,7 @@ struct LoginView: View {
                 let code = (webViewNavigation.redirectURL?.valueOf("code")) ?? ""
                 let user = try await MSUService.login(code: code)
                 if let user = user {
-                    user_id = user.id
-                    self.user = user
+                    self.user.update(user: user)
                 }
             }
         })

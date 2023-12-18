@@ -8,15 +8,15 @@
 import Foundation
 
 class MinecraftServer: Codable, Identifiable {
-    var id: String
     
+    var id: String { return name }
     let filePath: String
     let status: String
     let name: String
     let serverProperties: [String: String]
     let serverConfig: MinecraftServerConfig
     let online: [String]
-    let playersOnline: Int
+    var playersOnline: Int { return online.count }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -26,8 +26,6 @@ class MinecraftServer: Codable, Identifiable {
         self.serverProperties = try container.decode([String : String].self, forKey: .serverProperties)
         self.serverConfig = try container.decode(MinecraftServerConfig.self, forKey: .serverConfig)
         self.online = try container.decode([String].self, forKey: .online)
-        self.playersOnline = try container.decode(Int.self, forKey: .playersOnline)
-        id = name
     }
     
     init(
@@ -36,8 +34,7 @@ class MinecraftServer: Codable, Identifiable {
         status: String = "",
         serverProperties: [String:String] = [:],
         online: [String] = [],
-        serverConfig: MinecraftServerConfig = MinecraftServerConfig(),
-        playersOnline: Int = 0
+        serverConfig: MinecraftServerConfig = MinecraftServerConfig()
     ) {
         self.name = name
         self.filePath = filePath
@@ -45,8 +42,6 @@ class MinecraftServer: Codable, Identifiable {
         self.serverProperties = serverProperties
         self.serverConfig = serverConfig
         self.online = online
-        self.playersOnline = playersOnline
-        id = name
     }
     
     static func == (lhs: MinecraftServer, rhs: MinecraftServer) -> Bool {

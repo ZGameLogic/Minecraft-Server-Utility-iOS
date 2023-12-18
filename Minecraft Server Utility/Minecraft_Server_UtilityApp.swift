@@ -12,6 +12,8 @@ struct Minecraft_Server_UtilityApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(User(id: UserDefaults.standard.string(forKey: "id") ?? ""))
+                .environmentObject(MinecraftServersViewModel())
         }
     }
 }

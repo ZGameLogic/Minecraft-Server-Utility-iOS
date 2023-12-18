@@ -14,12 +14,12 @@ struct ServerListView: View {
         VStack {
             Spacer()
             HStack{
-                Text(server.name)
-                    .font(.title)
-                    .padding([.leading], 10)
                 Circle()
                     .fill(statusFill())
                     .frame(width: 20, height: 20)
+                Text(server.name)
+                    .font(.title)
+                    .padding([.leading], 10)
                 Spacer()
             }
             HStack{
