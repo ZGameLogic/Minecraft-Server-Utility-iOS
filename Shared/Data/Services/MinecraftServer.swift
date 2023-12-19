@@ -18,6 +18,7 @@ class MinecraftServer: Codable, Identifiable, ObservableObject {
     @Published var serverConfig: MinecraftServerConfig
     @Published var online: [String]
     var playersOnline: Int { return online.count }
+    var sendMessageFunction: ((String, String, [String: String]) -> Void)?
     
     private enum CodingKeys: String, CodingKey {
         case filePath

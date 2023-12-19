@@ -32,7 +32,7 @@ struct ServerDetailView: View {
                 }
             }, header: {
                 HStack {
-                    Text("Players")
+                    Text("Players - \(server.playersOnline)")
                         .font(.title2)
                         .padding()
                     Spacer()
@@ -61,7 +61,7 @@ struct ServerDetailView: View {
     }
     
     func sendCommand(command: String){
-        
+        server.sendMessageFunction!(server.name, command, [:])
     }
 }
 

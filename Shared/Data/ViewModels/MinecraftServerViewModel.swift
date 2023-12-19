@@ -20,14 +20,24 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
         refreshSevers()
     }
     
+    func sendMessage(server: String, action: String, data: [String: String]){
+        let uid: String = UserDefaults.standard.value(forKey: "id") as! String
+        let message = WebsocketMessage(action: action, userId: uid, data: data)
+        let url = "/app/server/\(server)"
+        swiftStomp.send(body: message, to: url)
+    }
+    
     func refreshSevers(){
         Task {
             do {
                 let servers = try await MSUService.fectchServers()
                 DispatchQueue.main.async {
                     self.minecraftServers = servers
+                    self.swiftStomp.connect()
+                    for server in self.minecraftServers {
+                        server.sendMessageFunction = self.sendMessage
+                    }
                 }
-                self.swiftStomp.connect(autoReconnect: true)
             } catch {
                 print(error)
             }
@@ -48,11 +58,19 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
     func onMessageReceived(swiftStomp: SwiftStomp, message: Any?, messageId: String, destination: String, headers: [String : String]) {
         guard let data = message as? String else { return }
         guard let stompFrame = try? JSONDecoder().decode(StompMessageFrame.self, from: data.data(using: .utf8)!) else { return }
-        print(stompFrame)
         guard let index = minecraftServers.firstIndex(where: {$0.name == stompFrame.server}) else { return }
         switch(stompFrame.messageType){
         case "status":
-            minecraftServers[index].status = stompFrame.message
+            guard let statusFrame = try? JSONDecoder().decode(GeneralMessage.self, from: data.data(using: .utf8)!) else { return }
+            minecraftServers[index].status = statusFrame.message
+            break
+        case "log":
+            guard let statusFrame = try? JSONDecoder().decode(GeneralMessage.self, from: data.data(using: .utf8)!) else { return }
+            // TODO: Add to log
+            break
+        case "player":
+            guard let statusFrame = try? JSONDecoder().decode(PlayersMessage.self, from: data.data(using: .utf8)!) else { return }
+            minecraftServers[index].online = statusFrame.players
             break
         default:
             break

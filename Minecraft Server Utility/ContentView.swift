@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isLoginPresented = false
     @State private var isProfilePresented = false
+    @State private var isCreateServerPresented = false
     @EnvironmentObject private var user: User
     
     var body: some View {
