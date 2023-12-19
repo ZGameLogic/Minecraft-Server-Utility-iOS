@@ -22,6 +22,13 @@ struct ContentView: View {
             }.navigationTitle("Servers")
                 .toolbar {
                 ToolbarItem {
+                    Button(action: {
+                        isCreateServerPresented = true
+                    }, label: {
+                        Label("Add Server", systemImage: "note.text.badge.plus")
+                    }).disabled(true)
+                }
+                ToolbarItem {
                     if(!user.loggedIn){
                         Button(action: {
                             isLoginPresented.toggle()
@@ -30,7 +37,7 @@ struct ContentView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 40, height: 40)
-                                .padding()
+                                .padding([.top, .trailing, .bottom])
                         }
                     } else {
                         Button(action: {
@@ -52,11 +59,13 @@ struct ContentView: View {
                                     Text("Failed to load image")
                                 }
                             }
-                        }.padding()
+                        }.padding([.top, .trailing, .bottom])
                     }
                 }
-            }.sheet(isPresented: $isLoginPresented, content: {LoginView(presented: $isLoginPresented)})
-                .sheet(isPresented: $isProfilePresented, content: {UserProfileView(isShowing: $isProfilePresented)})
+            }
+                .sheet(isPresented: $isLoginPresented){LoginView(presented: $isLoginPresented)}
+                .sheet(isPresented: $isProfilePresented){UserProfileView(isShowing: $isProfilePresented)}
+                .sheet(isPresented: $isCreateServerPresented){AddServerView(isPresented: $isCreateServerPresented)}
             .onAppear(){
                 if(!user.id.isEmpty && !user.loggedIn){
                     Task {

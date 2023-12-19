@@ -10,6 +10,7 @@ import SwiftUI
 struct ServerDetailView: View {
     @EnvironmentObject private var user: User
     @ObservedObject var server: MinecraftServer
+    @State var stopAlertIsPresented = false
     
     var body: some View {
         ScrollView {
@@ -45,7 +46,7 @@ struct ServerDetailView: View {
                             sendCommand(command: "start")
                         }.disabled(!(server.status == "Offline"))
                         Button("Stop"){
-                            sendCommand(command: "stop")
+                            stopAlertIsPresented = true
                         }.disabled(!(server.status == "Online"))
                     }.padding([.leading, .trailing])
                 }, header: {
@@ -57,6 +58,19 @@ struct ServerDetailView: View {
                     }
                 })
             }
+        }.alert(isPresented: $stopAlertIsPresented){
+            Alert(
+                title: Text("Confirm"),
+                message: Text("Are you sure you want to stop this server? All players will be disconnected."),
+                primaryButton: .default(
+                    Text("Cancel"),
+                    action: {}
+                ),
+                secondaryButton: .destructive(
+                    Text("Stop"),
+                    action: {sendCommand(command: "stop")}
+                )
+            )
         }
     }
     

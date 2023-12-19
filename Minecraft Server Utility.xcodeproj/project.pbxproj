@@ -16,6 +16,7 @@
 		B530D4002B30BCF80038A887 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530D3FF2B30BCF70038A887 /* URLImage.swift */; };
 		B5401ECB2B22A6F600E66375 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5401ECA2B22A6F600E66375 /* Log.swift */; };
 		B5401ECC2B22A6F600E66375 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5401ECA2B22A6F600E66375 /* Log.swift */; };
+		B54F7ED92B32218400946D76 /* AddServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54F7ED82B32218400946D76 /* AddServerView.swift */; };
 		B56353512B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
 		B56353522B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
 		B57D4D1C2B2FD34F006814C8 /* StompMessageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57D4D1B2B2FD34F006814C8 /* StompMessageFrame.swift */; };
@@ -79,6 +80,7 @@
 		B530D3FC2B30AE450038A887 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		B530D3FF2B30BCF70038A887 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		B5401ECA2B22A6F600E66375 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		B54F7ED82B32218400946D76 /* AddServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerView.swift; sourceTree = "<group>"; };
 		B56353502B142703003F1716 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B57D4D1B2B2FD34F006814C8 /* StompMessageFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompMessageFrame.swift; sourceTree = "<group>"; };
 		B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersGeneralView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */,
 				B580A45D2B290C310043F932 /* LoginView.swift */,
 				B50D59162B31E4A100E81459 /* CreateServerView.swift */,
+				B54F7ED82B32218400946D76 /* AddServerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				B580A45E2B290C310043F932 /* LoginView.swift in Sources */,
 				B52330692B2BB49E001878EB /* ServerListView.swift in Sources */,
 				B523306B2B2BB4AB001878EB /* ServerDetailView.swift in Sources */,
+				B54F7ED92B32218400946D76 /* AddServerView.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
 				B5E60DE52B2DEF9D00BD55D3 /* SwiftStomp.swift in Sources */,
 			);
