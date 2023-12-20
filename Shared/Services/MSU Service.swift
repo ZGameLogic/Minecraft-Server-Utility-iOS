@@ -77,16 +77,43 @@ class MSUService {
         return try decoder.decode([String: [String]].self, from: data)
     }
     
-//    static func fetchServerLog(server: String){
-//        guard let url = URL(string: Constants.API_BASE_URL + "/server/log/\(server)") else {return}
-//    }
-//
-//    
-//    static func validateServerInformation(data: String) {
-//        guard let url = URL(string: Constants.API_BASE_URL + "/server/create/check") else {return}
-//    }
-//    
-//    static func createServer(data: String){
-//        guard let url = URL(string: Constants.API_BASE_URL + "/server/create") else {return}
-//    }
+    static func validateServerInfo(creationData: MCServerCreationData) async throws -> CompletionMessage? {
+        let id = UserDefaults.standard.string(forKey: "id")!
+        guard let url = URL(string: Constants.API_BASE_URL + "/server/create/check") else { return Optional.none }
+        
+        var request = URLRequest(url: url)
+        request.addValue(id, forHTTPHeaderField: "user")
+        request.httpMethod = "POST"
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+        let encoder = JSONEncoder()
+        let jsonData = try encoder.encode(creationData)
+        request.httpBody = jsonData
+        
+        let(data, _) = try await URLSession.shared.data(for: request)
+        let decoder = JSONDecoder()
+        return try decoder.decode(CompletionMessage.self, from: data)
+    }
+    
+    static func createServer(creationData: MCServerCreationData) async throws -> CompletionMessage? {
+        let id = UserDefaults.standard.string(forKey: "id")!
+        guard let url = URL(string: Constants.API_BASE_URL + "/server/create") else { return Optional.none }
+        
+        var request = URLRequest(url: url)
+        request.addValue(id, forHTTPHeaderField: "user")
+        request.httpMethod = "POST"
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+        let encoder = JSONEncoder()
+        let jsonData = try encoder.encode(creationData)
+        request.httpBody = jsonData
+        
+        let(data, _) = try await URLSession.shared.data(for: request)
+        let decoder = JSONDecoder()
+        return try decoder.decode(CompletionMessage.self, from: data)
+    }
 }

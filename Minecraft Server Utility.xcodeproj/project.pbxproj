@@ -12,6 +12,8 @@
 		B52330692B2BB49E001878EB /* ServerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52330682B2BB49E001878EB /* ServerListView.swift */; };
 		B523306B2B2BB4AB001878EB /* ServerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523306A2B2BB4AB001878EB /* ServerDetailView.swift */; };
 		B52330702B2BBF51001878EB /* MinecraftServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B523306F2B2BBF51001878EB /* MinecraftServerViewModel.swift */; };
+		B52B477F2B33382D00EF7724 /* MCServerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B477E2B33382D00EF7724 /* MCServerCreation.swift */; };
+		B52B47832B333C7600EF7724 /* MCServerCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B477E2B33382D00EF7724 /* MCServerCreation.swift */; };
 		B530D3FD2B30AE450038A887 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530D3FC2B30AE450038A887 /* UserViewModel.swift */; };
 		B530D4002B30BCF80038A887 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B530D3FF2B30BCF70038A887 /* URLImage.swift */; };
 		B5401ECB2B22A6F600E66375 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5401ECA2B22A6F600E66375 /* Log.swift */; };
@@ -77,6 +79,7 @@
 		B52330682B2BB49E001878EB /* ServerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListView.swift; sourceTree = "<group>"; };
 		B523306A2B2BB4AB001878EB /* ServerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailView.swift; sourceTree = "<group>"; };
 		B523306F2B2BBF51001878EB /* MinecraftServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerViewModel.swift; sourceTree = "<group>"; };
+		B52B477E2B33382D00EF7724 /* MCServerCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCServerCreation.swift; sourceTree = "<group>"; };
 		B530D3FC2B30AE450038A887 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		B530D3FF2B30BCF70038A887 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		B5401ECA2B22A6F600E66375 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 				B580A45F2B29110B0043F932 /* MSUUser.swift */,
 				B57D4D1B2B2FD34F006814C8 /* StompMessageFrame.swift */,
 				B50D59182B31F42400E81459 /* WebsocketMessage.swift */,
+				B52B477E2B33382D00EF7724 /* MCServerCreation.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -413,6 +417,7 @@
 				B589CD652B29242D00730B69 /* UserProfileView.swift in Sources */,
 				B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */,
 				B530D4002B30BCF80038A887 /* URLImage.swift in Sources */,
+				B52B477F2B33382D00EF7724 /* MCServerCreation.swift in Sources */,
 				B57D4D1C2B2FD34F006814C8 /* StompMessageFrame.swift in Sources */,
 				B530D3FD2B30AE450038A887 /* UserViewModel.swift in Sources */,
 				B5E4EBAF2B22899900F653D9 /* MinecraftServer.swift in Sources */,
@@ -438,6 +443,7 @@
 				B5CC54632ACCBE33001864A7 /* AppIntent.swift in Sources */,
 				B5CC546E2ACCBE40001864A7 /* MSU Service.swift in Sources */,
 				B5CC545D2ACCBE33001864A7 /* MSU_WidgetsBundle.swift in Sources */,
+				B52B47832B333C7600EF7724 /* MCServerCreation.swift in Sources */,
 				B5401ECC2B22A6F600E66375 /* Log.swift in Sources */,
 				B5CC54612ACCBE33001864A7 /* MSU_Widgets.swift in Sources */,
 			);

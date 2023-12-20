@@ -21,12 +21,14 @@ struct ContentView: View {
                 })
             }.navigationTitle("Servers")
                 .toolbar {
-                ToolbarItem {
-                    Button(action: {
-                        isCreateServerPresented = true
-                    }, label: {
-                        Label("Add Server", systemImage: "note.text.badge.plus")
-                    }).disabled(!user.hasPermission(server: "General Permissions", permission: "C"))
+                if(user.hasPermission(server: "General Permissions", permission: "C")){
+                    ToolbarItem {
+                        Button(action: {
+                            isCreateServerPresented = true
+                        }, label: {
+                            Label("Add Server", systemImage: "note.text.badge.plus")
+                        })
+                    }
                 }
                 ToolbarItem {
                     if(!user.loggedIn){

@@ -9,23 +9,35 @@ import SwiftUI
 
 struct AddServerView: View {
     @State var serverName = ""
+    @State var serverNameError = ""
     @State var port = 25565
+    @State var portError = ""
     @State var category = ""
     @State var version = ""
     @State var autoStart = false
     @State var autoUpdate = false
     @State var startCommand = "java -jar server.jar"
+    @State var startCommandError = ""
     @State var versionData: [String: [String]] = [:]
+    @State var isThinking = false
+    @EnvironmentObject var servers: MinecraftServersViewModel
     
     @Binding var isPresented: Bool
     var body: some View {
         NavigationStack {
             Form {
                 TextField("Server Name", text: $serverName, prompt: Text("ATM9"))
+                if(!serverNameError.isEmpty){
+                    Text("\(serverNameError)")
+                        .foregroundStyle(.crashed)
+                }
                 Stepper(value: $port, in: 25565...29999, label: {
                     Text(verbatim: "Port: \(port)")
-                        
                 })
+                if(!portError.isEmpty){
+                    Text("\(portError)")
+                        .foregroundStyle(.crashed)
+                }
                 ControlGroup {
                     Toggle("Auto Start", isOn: $autoStart)
                     Toggle("Auto Update", isOn: $autoUpdate)
@@ -44,19 +56,23 @@ struct AddServerView: View {
                         }
                     }
                 }
-                TextField("Start Script", text: $startCommand)
+                ControlGroup {
+                    TextField("Start Script", text: $startCommand)
+                    if(!startCommandError.isEmpty){
+                        Text("\(startCommandError)")
+                            .foregroundStyle(.crashed)
+                    }
+                }
             }.navigationTitle("Create Server")
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel", action: { isPresented = false })
-                        .foregroundColor(.red)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Cancel", action: { isPresented = false })
+                            .foregroundColor(.red)
+                    }
+                    ToolbarItem {
+                        Button("Create", action: submitServer).disabled(versionData.isEmpty || isThinking)
+                    }
                 }
-                ToolbarItem {
-                    Button("Create", action: {
-                        
-                    }).disabled(versionData.isEmpty)
-                }
-            }
         }.onAppear(){
             Task {
                 do {
@@ -67,6 +83,67 @@ struct AddServerView: View {
                 } catch {
                     print(error)
                 }
+            }
+        }
+    }
+    
+    func clearErrors(){
+        serverNameError = ""
+        portError = ""
+        startCommandError = ""
+    }
+    
+    func submitServer(){
+        clearErrors()
+        isThinking = true
+        let creationData = MCServerCreationData(
+            name: serverName,
+            port: port,
+            autoStart: autoStart,
+            autoUpdate: autoUpdate,
+            version: version,
+            category: category,
+            startCommand: startCommand
+        )
+        Task {
+            do {
+                guard let data = try await MSUService.validateServerInfo(creationData: creationData) else {
+                    isThinking = false
+                    return
+                }
+                if(data.success){
+                    guard let data = try await MSUService.createServer(creationData: creationData) else {
+                        isThinking = false
+                        return
+                    }
+                    if(data.success){
+                        print(data.message)
+                        servers.refreshSevers()
+                        isPresented = false
+                    } else {
+                        isThinking = false
+                    }
+                } else {
+                    for error in data.data!.keys {
+                        switch error {
+                        case "name":
+                            serverNameError = data.data![error]!
+                            break
+                        case "port":
+                            portError = data.data![error]!
+                            break
+                        case "startCommand":
+                            startCommandError = data.data![error]!
+                            break
+                        default:
+                            break
+                        }
+                    }
+                }
+                isThinking = false
+            } catch {
+                isThinking = false
+                print(error)
             }
         }
     }
