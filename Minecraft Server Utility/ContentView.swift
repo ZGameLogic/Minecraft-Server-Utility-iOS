@@ -26,7 +26,7 @@ struct ContentView: View {
                         isCreateServerPresented = true
                     }, label: {
                         Label("Add Server", systemImage: "note.text.badge.plus")
-                    }).disabled(true)
+                    }).disabled(!user.hasPermission(server: "General Permissions", permission: "C"))
                 }
                 ToolbarItem {
                     if(!user.loggedIn){

@@ -29,13 +29,9 @@ class MSUService {
             print("invalid response code")
             return nil
         }
-        do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(MSUUser.self, from: data)
-        } catch {
-            print(error)
-            return nil
-        }
+        
+        let decoder = JSONDecoder()
+        return try decoder.decode(MSUUser.self, from: data)
     }
     
     
@@ -48,13 +44,8 @@ class MSUService {
             return []
         }
         
-        do {
-            let decoder = JSONDecoder()
-            return try decoder.decode([MinecraftServer].self, from: data)
-        } catch {
-            print(error)
-            return []
-        }
+        let decoder = JSONDecoder()
+        return try decoder.decode([MinecraftServer].self, from: data)
     }
     
     static func fetchServer(server: String) async throws -> MinecraftServer? {
@@ -66,22 +57,30 @@ class MSUService {
             return Optional.none
         }
         
-        do {
-            let decoder = JSONDecoder()
-            return try decoder.decode([MinecraftServer].self, from: data)[0]
-        } catch {
-            print(error)
-            return Optional.none
+        let decoder = JSONDecoder()
+        return try decoder.decode([MinecraftServer].self, from: data)[0]
+    }
+    
+    static func fetchServerVersions() async throws -> [String: [String]] {
+        let id = UserDefaults.standard.string(forKey: "id")!
+        guard let url = URL(string: Constants.API_BASE_URL + "/server/versions") else { return [:] }
+        
+        var request = URLRequest(url: url)
+        request.addValue(id, forHTTPHeaderField: "user")
+        
+        let(data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            print("invalid response code")
+            return [:]
         }
+        let decoder = JSONDecoder()
+        return try decoder.decode([String: [String]].self, from: data)
     }
     
 //    static func fetchServerLog(server: String){
 //        guard let url = URL(string: Constants.API_BASE_URL + "/server/log/\(server)") else {return}
 //    }
-//    
-//    static func fetchServerVersions(){
-//        guard let url = URL(string: Constants.API_BASE_URL + "/server/versions") else {return}
-//    }
+//
 //    
 //    static func validateServerInformation(data: String) {
 //        guard let url = URL(string: Constants.API_BASE_URL + "/server/create/check") else {return}

@@ -16,7 +16,6 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
         self.minecraftServers = minecraftServers
         swiftStomp = SwiftStomp(host: URL(string: urlString)!)
         swiftStomp.delegate = self
-        swiftStomp.autoReconnect = true
         refreshSevers()
     }
     
@@ -33,10 +32,13 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
                 let servers = try await MSUService.fectchServers()
                 DispatchQueue.main.async {
                     self.minecraftServers = servers
-                    self.swiftStomp.connect()
+                    if(!self.swiftStomp.isConnected){
+                        self.swiftStomp.connect(autoReconnect: true)
+                    }
                     for server in self.minecraftServers {
                         server.sendMessageFunction = self.sendMessage
                     }
+                        
                 }
             } catch {
                 print(error)
