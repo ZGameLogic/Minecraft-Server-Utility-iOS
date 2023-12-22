@@ -16,14 +16,16 @@ class User: ObservableObject {
     }
     @Published var avatar: String
     @Published var permissions: [String:String]
+    @Published var notifications: [String: NotificationSettings]
     @Published var loggedIn: Bool
     
-    init(username: String = "", id: String = "", avatar: String = "", permissions: [String : String] = [:], loggedIn: Bool = false) {
+    init(username: String = "", id: String = "", avatar: String = "", permissions: [String : String] = [:], notifications: [String: NotificationSettings] = [:], loggedIn: Bool = false) {
         self.username = username
         self.id = id
         self.avatar = avatar
         self.permissions = permissions
         self.loggedIn = loggedIn
+        self.notifications = notifications
     }
     
     func update(user: MSUUser){
@@ -31,6 +33,7 @@ class User: ObservableObject {
         id = user.id
         avatar = user.avatar
         permissions = user.permissions
+        notifications = user.notifications
         loggedIn = user.loggedIn
     }
     

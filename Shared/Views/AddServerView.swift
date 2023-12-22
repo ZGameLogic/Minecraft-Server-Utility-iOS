@@ -151,7 +151,29 @@ struct AddServerView: View {
 
 #Preview {
     AddServerView(versionData: [
-        "vanilla": ["1.20.4", ".1.20.3"],
+        "vanilla": ["1.20.4", "1.20.3", "2.3.5", "1.22"],
         "AMT9": ["0.2.10", "0.3"]
     ], isPresented: Binding.constant(true))
 }
+
+/**
+ .sorted {
+ let lhsStrings = $0.split(separator: ".")
+ let lhs = [
+     Int(lhsStrings.indices.contains(0) ? lhsStrings[0] : "0")!,
+     Int(lhsStrings.indices.contains(1) ? lhsStrings[1] : "0")!,
+     Int(lhsStrings.indices.contains(2) ? lhsStrings[2] : "0")!,
+ ]
+ let rhsStrings = $1.split(separator: ".")
+ let rhs = [
+     Int(rhsStrings.indices.contains(0) ? rhsStrings[0] : "0")!,
+     Int(rhsStrings.indices.contains(1) ? rhsStrings[1] : "0")!,
+     Int(rhsStrings.indices.contains(2) ? rhsStrings[2] : "0")!,
+ ]
+ for i in 0...2 {
+     if(lhs[i] == rhs[i]) {continue}
+     return lhs[i] > rhs[i]
+ }
+ return true
+} 
+ */
