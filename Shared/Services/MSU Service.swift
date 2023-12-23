@@ -116,4 +116,26 @@ class MSUService {
         let decoder = JSONDecoder()
         return try decoder.decode(CompletionMessage.self, from: data)
     }
+    
+    static func registerDevice(token: String) async throws {
+        try await registrationEndpoint(add: true, token: token)
+    }
+    
+    static func unregisterDevice(token: String) async throws {
+        try await registrationEndpoint(add: false, token: token)
+    }
+    
+    private static func registrationEndpoint(add: Bool, token: String) async throws {
+        let id = UserDefaults.standard.string(forKey: "id")!
+        guard let url = URL(string: Constants.API_BASE_URL + "/user/devices/\(add ? "register" : "unregister")/\(token)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.addValue(id, forHTTPHeaderField: "user")
+        request.httpMethod = "POST"
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+        _ = try await URLSession.shared.data(for: request)
+    }
 }

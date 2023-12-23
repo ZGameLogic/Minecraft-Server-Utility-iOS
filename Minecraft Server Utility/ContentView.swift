@@ -74,7 +74,6 @@ struct ContentView: View {
                         let user = try await MSUService.login(id: user.id)
                         if let user = user {
                             self.user.update(user: user)
-                            print(user)
                         }
                     }
                 }
