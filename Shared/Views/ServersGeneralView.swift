@@ -11,14 +11,19 @@ struct ServersGeneralView: View {
     @EnvironmentObject var servers: MinecraftServersViewModel
     
     var body: some View {
-        List {
-            ForEach(servers.minecraftServers) { server in
-                NavigationLink(destination:  ServerDetailView(server: server)) {
-                    ServerListView(server: server)
+        if servers.minecraftServers.isEmpty {
+            ServersUnavailableView(refresh: servers.refreshSevers)
+        } else {
+            List {
+                ForEach(servers.minecraftServers) { server in
+                    NavigationLink(destination:  ServerDetailView(server: server)) {
+                        ServerListView(server: server)
+                    }
                 }
             }
-        }.refreshable {
-            servers.refreshSevers()
+            .refreshable {
+                servers.refreshSevers()
+            }
         }
     }
 }

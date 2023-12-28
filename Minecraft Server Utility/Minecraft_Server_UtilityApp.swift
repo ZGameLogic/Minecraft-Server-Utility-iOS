@@ -20,19 +20,12 @@ struct Minecraft_Server_UtilityApp: App {
 }
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    var token: String = ""
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         _ = response.notification.request.content.userInfo
-//        guard let specialName = userInfo["special"] as? String,
-//              let specialPriceString = userInfo["price"] as? String,
-//              let specialPrice = Float(specialPriceString) else {
-//            // Always call the completion handler when done.
-//            completionHandler()
-//            return
-//        }
-
-        // TODO open app somehow
         completionHandler()
      }
     
@@ -49,9 +42,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                     deviceToken: Data) {
         let tokenComponents = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let deviceTokenString = tokenComponents.joined()
-        print("Submitting token")
-        // TODO: Submit token to backend
-        print(deviceTokenString)
+        print("Setting token")
+        token = deviceTokenString
+        Task {
+            try await MSUService.registerDevice(token: token)
+        }
     }
 
 

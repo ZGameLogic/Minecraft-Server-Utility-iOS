@@ -23,11 +23,13 @@
 		B56353522B142703003F1716 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
 		B57D4D1C2B2FD34F006814C8 /* StompMessageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57D4D1B2B2FD34F006814C8 /* StompMessageFrame.swift */; };
 		B57D4D1D2B2FD34F006814C8 /* StompMessageFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57D4D1B2B2FD34F006814C8 /* StompMessageFrame.swift */; };
+		B57E4B172B3DD0A600AA66BC /* ServersUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57E4B162B3DD0A600AA66BC /* ServersUnavailableView.swift */; };
 		B580A45C2B290B0B0043F932 /* ServersGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */; };
 		B580A45E2B290C310043F932 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45D2B290C310043F932 /* LoginView.swift */; };
 		B580A4602B29110B0043F932 /* MSUUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45F2B29110B0043F932 /* MSUUser.swift */; };
 		B589CD632B291BCB00730B69 /* MSUUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580A45F2B29110B0043F932 /* MSUUser.swift */; };
 		B589CD652B29242D00730B69 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B589CD642B29242D00730B69 /* UserProfileView.swift */; };
+		B5952D9D2B37943200AEF1D0 /* test.apns in Resources */ = {isa = PBXBuildFile; fileRef = B5952D9C2B37943200AEF1D0 /* test.apns */; };
 		B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */; };
 		B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54412ACCBC5B001864A7 /* ContentView.swift */; };
 		B5CC54442ACCBC5D001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54432ACCBC5D001864A7 /* Assets.xcassets */; };
@@ -86,11 +88,15 @@
 		B54F7ED82B32218400946D76 /* AddServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerView.swift; sourceTree = "<group>"; };
 		B56353502B142703003F1716 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B57D4D1B2B2FD34F006814C8 /* StompMessageFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StompMessageFrame.swift; sourceTree = "<group>"; };
+		B57E4B162B3DD0A600AA66BC /* ServersUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersUnavailableView.swift; sourceTree = "<group>"; };
 		B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersGeneralView.swift; sourceTree = "<group>"; };
 		B580A45D2B290C310043F932 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B580A45F2B29110B0043F932 /* MSUUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSUUser.swift; sourceTree = "<group>"; };
 		B5820F572B366F390086951B /* Minecraft Server Utility.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Minecraft Server Utility.entitlements"; sourceTree = "<group>"; };
 		B589CD642B29242D00730B69 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		B5952D9C2B37943200AEF1D0 /* test.apns */ = {isa = PBXFileReference; lastKnownFileType = text; name = test.apns; path = ../../../../test.apns; sourceTree = "<group>"; };
+		B5952DA32B3794D000AEF1D0 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		B5952DA52B3794D000AEF1D0 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minecraft Server Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minecraft_Server_UtilityApp.swift; sourceTree = "<group>"; };
 		B5CC54412ACCBC5B001864A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -187,14 +193,24 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		B57E4B152B3DD08200AA66BC /* Unavailable */ = {
+			isa = PBXGroup;
+			children = (
+				B57E4B162B3DD0A600AA66BC /* ServersUnavailableView.swift */,
+			);
+			path = Unavailable;
+			sourceTree = "<group>";
+		};
 		B580A45A2B290AE30043F932 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B57E4B152B3DD08200AA66BC /* Unavailable */,
 				B530D3FE2B30BCD20038A887 /* Misc */,
 				B523306D2B2BB6C8001878EB /* Detail */,
 				B523306C2B2BB6B4001878EB /* List */,
 				B580A45B2B290B0B0043F932 /* ServersGeneralView.swift */,
 				B580A45D2B290C310043F932 /* LoginView.swift */,
+				B5952D9C2B37943200AEF1D0 /* test.apns */,
 				B50D59162B31E4A100E81459 /* CreateServerView.swift */,
 				B54F7ED82B32218400946D76 /* AddServerView.swift */,
 			);
@@ -266,6 +282,8 @@
 			children = (
 				B5CC54572ACCBE33001864A7 /* WidgetKit.framework */,
 				B5CC54592ACCBE33001864A7 /* SwiftUI.framework */,
+				B5952DA32B3794D000AEF1D0 /* UserNotifications.framework */,
+				B5952DA52B3794D000AEF1D0 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -350,7 +368,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					B5CC543B2ACCBC5B001864A7 = {
@@ -391,6 +409,7 @@
 			files = (
 				B5CC54472ACCBC5D001864A7 /* Preview Assets.xcassets in Resources */,
 				B5CC54442ACCBC5D001864A7 /* Assets.xcassets in Resources */,
+				B5952D9D2B37943200AEF1D0 /* test.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +446,7 @@
 				B580A45E2B290C310043F932 /* LoginView.swift in Sources */,
 				B52330692B2BB49E001878EB /* ServerListView.swift in Sources */,
 				B523306B2B2BB4AB001878EB /* ServerDetailView.swift in Sources */,
+				B57E4B172B3DD0A600AA66BC /* ServersUnavailableView.swift in Sources */,
 				B54F7ED92B32218400946D76 /* AddServerView.swift in Sources */,
 				B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */,
 				B5E60DE52B2DEF9D00BD55D3 /* SwiftStomp.swift in Sources */,
