@@ -13,6 +13,7 @@ struct ServersGeneralView: View {
     var body: some View {
         if servers.minecraftServers.isEmpty {
             ServersUnavailableView(refresh: servers.refreshSevers)
+                .navigationTitle("Servers")
         } else {
             List {
                 ForEach(servers.minecraftServers) { server in
@@ -20,7 +21,7 @@ struct ServersGeneralView: View {
                         ServerListView(server: server)
                     }
                 }
-            }
+            }.navigationTitle("Servers")
             .refreshable {
                 servers.refreshSevers()
             }

@@ -125,6 +125,25 @@ class MSUService {
         try await registrationEndpoint(add: false, token: token)
     }
     
+    static func toggleNotification(packet: NotificationTogglePacket) async throws {
+        let id = UserDefaults.standard.string(forKey: "id")!
+        guard let url = URL(string: Constants.API_BASE_URL + "/user/notifications/toggle") else { return }
+        
+        var request = URLRequest(url: url)
+        request.addValue(id, forHTTPHeaderField: "user")
+        request.httpMethod = "POST"
+        request.setValue(
+            "application/json",
+            forHTTPHeaderField: "Content-Type"
+        )
+        
+        let encoder = JSONEncoder()
+        let jsonData = try encoder.encode(packet)
+        request.httpBody = jsonData
+        
+        _ = try await URLSession.shared.data(for: request)
+    }
+    
     private static func registrationEndpoint(add: Bool, token: String) async throws {
         let id = UserDefaults.standard.string(forKey: "id")!
         guard let url = URL(string: Constants.API_BASE_URL + "/user/devices/\(add ? "register" : "unregister")/\(token)") else { return }

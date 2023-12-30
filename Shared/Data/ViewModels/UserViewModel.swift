@@ -51,3 +51,21 @@ class User: ObservableObject {
         return permissions.keys.contains(server) && permissions[server]!.contains(permission)
     }
 }
+
+struct NotificationConfiguration {
+    var player: Bool
+    var status: Bool
+    var live: Bool
+    
+    init(player: Bool, status: Bool, live: Bool) {
+        self.player = player
+        self.status = status
+        self.live = live
+    }
+    
+    init(settings: NotificationSettings){
+        player = settings.player
+        status = settings.status
+        live = settings.live
+    }
+}

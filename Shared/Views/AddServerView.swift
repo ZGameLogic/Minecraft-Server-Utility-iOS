@@ -16,7 +16,7 @@ struct AddServerView: View {
     @State var version = ""
     @State var autoStart = false
     @State var autoUpdate = false
-    @State var startCommand = "java -jar server.jar"
+    @State var startCommand = "java -jar server.jar nogui"
     @State var startCommandError = ""
     @State var versionData: [String: [String]] = [:]
     @State var isThinking = false

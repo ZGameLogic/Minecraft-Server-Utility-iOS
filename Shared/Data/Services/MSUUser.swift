@@ -44,8 +44,7 @@ struct MSUUser: Codable {
 }
 
 struct NotificationSettings: Codable {
-    let player: Bool
-    let status: Bool
-    let live: Bool
-    let chat: Bool
+    var player: Bool
+    var status: Bool
+    var live: Bool
 }

@@ -19,8 +19,11 @@ struct ContentView: View {
                 ServersGeneralView().tabItem({
                     Label("Servers", systemImage: "chart.bar.doc.horizontal")
                 })
-            }.navigationTitle("Servers")
-                .toolbar {
+                ServerNotificationView().tabItem({
+                    Label("Notifications", systemImage: "bubble.left.and.exclamationmark.bubble.right")
+                })
+            }
+            .toolbar {
                 if(user.hasPermission(server: "General Permissions", permission: "C")){
                     ToolbarItem {
                         Button(action: {
@@ -65,9 +68,9 @@ struct ContentView: View {
                     }
                 }
             }
-                .sheet(isPresented: $isLoginPresented){LoginView(presented: $isLoginPresented)}
-                .sheet(isPresented: $isProfilePresented){UserProfileView(isShowing: $isProfilePresented)}
-                .sheet(isPresented: $isCreateServerPresented){AddServerView(isPresented: $isCreateServerPresented)}
+            .sheet(isPresented: $isLoginPresented){LoginView(presented: $isLoginPresented)}
+            .sheet(isPresented: $isProfilePresented){UserProfileView(isShowing: $isProfilePresented)}
+            .sheet(isPresented: $isCreateServerPresented){AddServerView(isPresented: $isCreateServerPresented)}
             .onAppear(){
                 if(!user.id.isEmpty && !user.loggedIn){
                     Task {

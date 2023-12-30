@@ -67,7 +67,7 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
             minecraftServers[index].status = statusFrame.message
             break
         case "log":
-            guard let statusFrame = try? JSONDecoder().decode(GeneralMessage.self, from: data.data(using: .utf8)!) else { return }
+            guard (try? JSONDecoder().decode(GeneralMessage.self, from: data.data(using: .utf8)!)) != nil else { return }
             // TODO: Add to log
             break
         case "player":
