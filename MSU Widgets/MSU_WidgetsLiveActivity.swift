@@ -2,7 +2,7 @@
 //  MSU_WidgetsLiveActivity.swift
 //  MSU Widgets
 //
-//  Created by Benjamin Shabowski on 10/3/23.
+//  Created by Benjamin Shabowski on 12/30/23.
 //
 
 import ActivityKit
