@@ -16,3 +16,7 @@ struct NotificationTogglePacket: Encodable {
         self.notification = notification
     }
 }
+
+struct MinecraftWidgetPacket: Decodable {
+    
+}

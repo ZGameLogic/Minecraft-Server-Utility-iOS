@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5CC54542ACCBE33001864A7"
+               BlueprintIdentifier = "B59C0FAF2B41274900358787"
                BuildableName = "MSU WidgetsExtension.appex"
                BlueprintName = "MSU WidgetsExtension"
                ReferencedContainer = "container:Minecraft Server Utility.xcodeproj">
