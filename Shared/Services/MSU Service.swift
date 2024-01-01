@@ -26,7 +26,7 @@ class MSUService {
         )
         let(data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            print("invalid response code")
+            print("invalid response code logging in")
             return nil
         }
         
@@ -40,7 +40,7 @@ class MSUService {
         let(data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            print("invalid response code")
+            print("invalid response code fetching servers")
             return []
         }
         
@@ -53,7 +53,7 @@ class MSUService {
         let(data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            print("invalid response code")
+            print("invalid response code fetching server")
             return Optional.none
         }
         
@@ -70,7 +70,7 @@ class MSUService {
         
         let(data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            print("invalid response code")
+            print("invalid response code fetching server versions")
             return [:]
         }
         let decoder = JSONDecoder()

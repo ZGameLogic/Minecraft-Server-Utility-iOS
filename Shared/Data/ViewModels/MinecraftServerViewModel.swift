@@ -38,7 +38,6 @@ class MinecraftServersViewModel: ObservableObject, SwiftStompDelegate {
                     for server in self.minecraftServers {
                         server.sendMessageFunction = self.sendMessage
                     }
-                        
                 }
             } catch {
                 print(error)

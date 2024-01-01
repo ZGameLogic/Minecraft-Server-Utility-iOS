@@ -37,11 +37,6 @@
 		B5C628742B42320800D37C62 /* MSU Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC544F2ACCBDD6001864A7 /* MSU Service.swift */; };
 		B5C628772B42324800D37C62 /* MSU Service Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C628752B42322400D37C62 /* MSU Service Widget.swift */; };
 		B5C628782B4232A900D37C62 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56353502B142703003F1716 /* AppConfig.swift */; };
-		B5C6287E2B430E0000D37C62 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5952DA32B3794D000AEF1D0 /* UserNotifications.framework */; };
-		B5C6287F2B430E0000D37C62 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5952DA52B3794D000AEF1D0 /* UserNotificationsUI.framework */; };
-		B5C628822B430E0000D37C62 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C628812B430E0000D37C62 /* NotificationViewController.swift */; };
-		B5C628852B430E0000D37C62 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5C628832B430E0000D37C62 /* MainInterface.storyboard */; };
-		B5C628892B430E0000D37C62 /* MSU Notification.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B5C6287D2B430E0000D37C62 /* MSU Notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B5CC54402ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */; };
 		B5CC54422ACCBC5B001864A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CC54412ACCBC5B001864A7 /* ContentView.swift */; };
 		B5CC54442ACCBC5D001864A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5CC54432ACCBC5D001864A7 /* Assets.xcassets */; };
@@ -62,13 +57,6 @@
 			remoteGlobalIDString = B59C0FAF2B41274900358787;
 			remoteInfo = "MSU WidgetsExtension";
 		};
-		B5C628872B430E0000D37C62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5CC54342ACCBC5B001864A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5C6287C2B430E0000D37C62;
-			remoteInfo = "MSU Notification";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,7 +66,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B5C628892B430E0000D37C62 /* MSU Notification.appex in Embed Foundation Extensions */,
 				B59C0FC12B41274B00358787 /* MSU WidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -116,10 +103,6 @@
 		B59C0FBC2B41274B00358787 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59C0FBE2B41274B00358787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5C628752B42322400D37C62 /* MSU Service Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MSU Service Widget.swift"; sourceTree = "<group>"; };
-		B5C6287D2B430E0000D37C62 /* MSU Notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MSU Notification.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5C628812B430E0000D37C62 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		B5C628842B430E0000D37C62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		B5C628862B430E0000D37C62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minecraft Server Utility.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CC543F2ACCBC5B001864A7 /* Minecraft_Server_UtilityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minecraft_Server_UtilityApp.swift; sourceTree = "<group>"; };
 		B5CC54412ACCBC5B001864A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,15 +124,6 @@
 			files = (
 				B59C0FB22B41274900358787 /* SwiftUI.framework in Frameworks */,
 				B59C0FB12B41274900358787 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5C6287A2B430E0000D37C62 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C6287F2B430E0000D37C62 /* UserNotificationsUI.framework in Frameworks */,
-				B5C6287E2B430E0000D37C62 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,23 +233,12 @@
 			path = "MSU Widgets";
 			sourceTree = "<group>";
 		};
-		B5C628802B430E0000D37C62 /* MSU Notification */ = {
-			isa = PBXGroup;
-			children = (
-				B5C628812B430E0000D37C62 /* NotificationViewController.swift */,
-				B5C628832B430E0000D37C62 /* MainInterface.storyboard */,
-				B5C628862B430E0000D37C62 /* Info.plist */,
-			);
-			path = "MSU Notification";
-			sourceTree = "<group>";
-		};
 		B5CC54332ACCBC5B001864A7 = {
 			isa = PBXGroup;
 			children = (
 				B5CC544D2ACCBD98001864A7 /* Shared */,
 				B5CC543E2ACCBC5B001864A7 /* Minecraft Server Utility */,
 				B59C0FB32B41274900358787 /* MSU Widgets */,
-				B5C628802B430E0000D37C62 /* MSU Notification */,
 				B5CC54562ACCBE33001864A7 /* Frameworks */,
 				B5CC543D2ACCBC5B001864A7 /* Products */,
 			);
@@ -286,7 +249,6 @@
 			children = (
 				B5CC543C2ACCBC5B001864A7 /* Minecraft Server Utility.app */,
 				B59C0FB02B41274900358787 /* MSU WidgetsExtension.appex */,
-				B5C6287D2B430E0000D37C62 /* MSU Notification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,23 +343,6 @@
 			productReference = B59C0FB02B41274900358787 /* MSU WidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		B5C6287C2B430E0000D37C62 /* MSU Notification */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B5C6288A2B430E0000D37C62 /* Build configuration list for PBXNativeTarget "MSU Notification" */;
-			buildPhases = (
-				B5C628792B430E0000D37C62 /* Sources */,
-				B5C6287A2B430E0000D37C62 /* Frameworks */,
-				B5C6287B2B430E0000D37C62 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "MSU Notification";
-			productName = "MSU Notification";
-			productReference = B5C6287D2B430E0000D37C62 /* MSU Notification.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		B5CC543B2ACCBC5B001864A7 /* Minecraft Server Utility */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5CC544A2ACCBC5D001864A7 /* Build configuration list for PBXNativeTarget "Minecraft Server Utility" */;
@@ -411,7 +356,6 @@
 			);
 			dependencies = (
 				B59C0FC02B41274B00358787 /* PBXTargetDependency */,
-				B5C628882B430E0000D37C62 /* PBXTargetDependency */,
 			);
 			name = "Minecraft Server Utility";
 			packageProductDependencies = (
@@ -433,9 +377,6 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					B59C0FAF2B41274900358787 = {
-						CreatedOnToolsVersion = 15.1;
-					};
-					B5C6287C2B430E0000D37C62 = {
 						CreatedOnToolsVersion = 15.1;
 					};
 					B5CC543B2ACCBC5B001864A7 = {
@@ -462,7 +403,6 @@
 			targets = (
 				B5CC543B2ACCBC5B001864A7 /* Minecraft Server Utility */,
 				B59C0FAF2B41274900358787 /* MSU WidgetsExtension */,
-				B5C6287C2B430E0000D37C62 /* MSU Notification */,
 			);
 		};
 /* End PBXProject section */
@@ -473,14 +413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B59C0FBD2B41274B00358787 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5C6287B2B430E0000D37C62 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C628852B430E0000D37C62 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,14 +440,6 @@
 				B59C0FBB2B41274900358787 /* AppIntent.swift in Sources */,
 				B59C0FB52B41274900358787 /* MSU_WidgetsBundle.swift in Sources */,
 				B59C0FB92B41274900358787 /* MSU_Widgets.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5C628792B430E0000D37C62 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C628822B430E0000D37C62 /* NotificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,23 +481,7 @@
 			target = B59C0FAF2B41274900358787 /* MSU WidgetsExtension */;
 			targetProxy = B59C0FBF2B41274B00358787 /* PBXContainerItemProxy */;
 		};
-		B5C628882B430E0000D37C62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5C6287C2B430E0000D37C62 /* MSU Notification */;
-			targetProxy = B5C628872B430E0000D37C62 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B5C628832B430E0000D37C62 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5C628842B430E0000D37C62 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B59C0FC32B41274B00358787 /* Debug */ = {
@@ -624,58 +532,6 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "zgamelogic.Minecraft-Server-Utility.MSU-Widgets";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		B5C6288B2B430E0000D37C62 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6M38R97L4D;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MSU Notification/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MSU Notification";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "zgamelogic.Minecraft-Server-Utility.MSU-Notification";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B5C6288C2B430E0000D37C62 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6M38R97L4D;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MSU Notification/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MSU Notification";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "zgamelogic.Minecraft-Server-Utility.MSU-Notification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -879,15 +735,6 @@
 			buildConfigurations = (
 				B59C0FC32B41274B00358787 /* Debug */,
 				B59C0FC42B41274B00358787 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B5C6288A2B430E0000D37C62 /* Build configuration list for PBXNativeTarget "MSU Notification" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B5C6288B2B430E0000D37C62 /* Debug */,
-				B5C6288C2B430E0000D37C62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

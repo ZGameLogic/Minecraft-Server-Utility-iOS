@@ -11,20 +11,24 @@ struct ServersGeneralView: View {
     @EnvironmentObject var servers: MinecraftServersViewModel
     
     var body: some View {
-        if servers.minecraftServers.isEmpty {
-            ServersUnavailableView(refresh: servers.refreshSevers)
-                .navigationTitle("Servers")
-        } else {
-            List {
-                ForEach(servers.minecraftServers) { server in
-                    NavigationLink(destination:  ServerDetailView(server: server)) {
-                        ServerListView(server: server)
+        Group {
+            if servers.minecraftServers.isEmpty {
+                ServersUnavailableView(refresh: servers.refreshSevers)
+            } else {
+                List {
+                    ForEach(servers.minecraftServers) { server in
+                        NavigationLink(destination:  ServerDetailView(server: server)) {
+                            ServerListView(server: server)
+                        }
                     }
+                }.refreshable {
+                    servers.refreshSevers()
                 }
-            }.navigationTitle("Servers")
-            .refreshable {
-                servers.refreshSevers()
             }
+        }
+        .navigationTitle("Servers")
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            servers.refreshSevers()
         }
     }
 }
