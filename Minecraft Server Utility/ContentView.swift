@@ -48,22 +48,9 @@ struct ContentView: View {
                         Button(action: {
                             isProfilePresented.toggle()
                         }) {
-                            AsyncImage(url: URL(string: "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar).png")){ phase in
-                                switch phase {
-                                case .empty:
-                                    ProgressView().frame(width: 40, height: 40)
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 40, height: 40)
-                                        .cornerRadius(20)
-                                case .failure:
-                                    Text("Failed to load image")
-                                @unknown default:
-                                    Text("Failed to load image")
-                                }
-                            }
+                            CachedImage(url: "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar).png")
+                                .frame(width: 40, height: 40)
+                                .cornerRadius(20)
                         }.padding([.top, .trailing, .bottom])
                     }
                 }

@@ -25,7 +25,8 @@ struct ServerDetailView: View {
                 Section(content: {
                     ForEach(server.online, id: \.self) { player in
                         HStack {
-                            URLImage(width: 20, height: 20, url: "https://mc-heads.net/avatar/\(player)/20")
+                            CachedImage(url: "https://mc-heads.net/avatar/\(player)/20")
+                                .frame(width: 20, height: 20)
                                 .padding([.leading])
                             Text(player).padding([.leading], 5)
                             Spacer()

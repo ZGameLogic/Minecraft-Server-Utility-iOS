@@ -33,8 +33,8 @@ struct ServerListView: View {
             }
             ForEach(server.online, id: \.self) { player in
                 HStack {
-                    URLImage(width: 20, height: 20, url: "https://mc-heads.net/avatar/\(player)/20")
-                        .padding([.leading])
+                    CachedImage(url: "https://mc-heads.net/avatar/\(player)/20")
+                        .frame(width: 20, height: 20)
                     Text(player).padding([.leading], 5)
                     Spacer()
                 }

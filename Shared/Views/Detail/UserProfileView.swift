@@ -13,31 +13,10 @@ struct UserProfileView: View {
     
     var body: some View {
         ScrollView {
-            AsyncImage(url: URL(string: "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar).png")){ phase in
-                switch phase {
-                case .empty:
-                    ProgressView().frame(width: 200, height: 200)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(100)
-                        .padding()
-                case .failure:
-                    Image(systemName: "person.crop.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .padding()
-                @unknown default:
-                    Image(systemName: "person.crop.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .padding()
-                }
-            }.padding()
+            CachedImage(url: "https://cdn.discordapp.com/avatars/\(user.id)/\(user.avatar).png")
+                .frame(width: 200, height: 200)
+                .cornerRadius(100)
+                .padding()
             Text(user.username)
                 .font(.title)
                 .scaledToFit()
