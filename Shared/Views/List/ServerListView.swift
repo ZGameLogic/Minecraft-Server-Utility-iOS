@@ -21,7 +21,7 @@ struct ServerListView: View {
                     .font(.title)
                     .padding([.leading], 10)
                 Spacer()
-            }
+            }.padding([.leading])
             HStack{
                 Text("Online: \(server.playersOnline)")
                     .padding([.horizontal], 10)
@@ -38,9 +38,11 @@ struct ServerListView: View {
                     Text(player).padding([.leading], 5)
                     Spacer()
                 }
-            }
+            }.padding([.leading])
             Spacer()
-        }
+        }.background(Color("Background"))
+            .cornerRadius(10)
+            .foregroundColor(Color("Text"))
     }
 }
 

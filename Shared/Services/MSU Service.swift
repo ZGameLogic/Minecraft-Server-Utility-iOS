@@ -145,7 +145,9 @@ class MSUService {
     }
     
     private static func registrationEndpoint(add: Bool, token: String) async throws {
-        let id = UserDefaults.standard.string(forKey: "id")!
+        guard let id = UserDefaults.standard.string(forKey: "id") else {
+            return
+        }
         guard let url = URL(string: Constants.API_BASE_URL + "/user/devices/\(add ? "register" : "unregister")/\(token)") else { return }
         
         var request = URLRequest(url: url)

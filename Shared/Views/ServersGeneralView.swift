@@ -15,10 +15,10 @@ struct ServersGeneralView: View {
             if servers.minecraftServers.isEmpty {
                 ServersUnavailableView(refresh: servers.refreshSevers)
             } else {
-                List {
+                ScrollView {
                     ForEach(servers.minecraftServers) { server in
                         NavigationLink(destination:  ServerDetailView(server: server)) {
-                            ServerListView(server: server)
+                            ServerListView(server: server).padding([.leading, .trailing, .top])
                         }
                     }
                 }.refreshable {
