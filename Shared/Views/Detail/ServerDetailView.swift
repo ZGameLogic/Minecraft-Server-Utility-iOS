@@ -45,7 +45,7 @@ struct ServerDetailView: View {
                         ControlGroup {
                             Button("Start"){
                                 sendCommand(command: "start")
-                            }.disabled(!(server.status == "Offline"))
+                            }.disabled(!(server.status == "Offline" || server.status == "Crashed"))
                             Button("Stop"){
                                 stopAlertIsPresented = true
                             }.disabled(!(server.status == "Online"))
